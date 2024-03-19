@@ -247,62 +247,62 @@ RSpec.shared_context 'mock swagger example' do
             'tags' => ['dummy']
           }
         }, '/thing' => {
-          'get' => {
-            'description' => 'This gets Things.',
-            'operationId' => 'getThing',
-            'parameters' => [
-              { 'description' => 'Identity of Something',
-                'in' => 'query',
-                'name' => 'id',
-                'required' => false,
-                'schema' => { 'format' => 'int32', 'type' => 'integer' } },
-              { 'description' => 'Content of something.',
-                'in' => 'query',
-                'name' => 'text',
-                'required' => false,
-                'schema' => { 'type' => 'string' } },
-              { 'in' => 'query',
-                'name' => 'others',
-                'required' => false,
-                'schema' => { 'type' => 'string' } }
-            ],
-            'responses' => {
-              '200' => {
-                'content' => { 'application/json' => {} },
-                'description' => 'This gets Things.'
-              },
-              '401' => {
-                'content' => { 'application/json' => { 'schema' => { '$ref' => '#/components/schemas/ApiError' } } },
-                'description' => 'Unauthorized'
-              }
-            }, 'tags' => ['thing']
-          }, 'post' => {
-            'description' => 'This creates Thing.',
-            'operationId' => 'postThing',
-            'requestBody' => {
-              'content' => {
-                'application/json' => {
-                  'schema' => { 'properties' => {}, 'type' => 'object' }
-                },
-                'application/x-www-form-urlencoded' => {
-                  'schema' => {
-                    'properties' => {
-                      'links' => { 'items' => { 'type' => 'string' }, 'type' => 'array' },
-                      'text' => { 'description' => 'Content of something.', 'type' => 'string' }
-                    },
-                    'required' => %w[text links],
-                    'type' => 'object'
-                  }
-                }
-              }
-            },
-            'responses' => {
-              '201' => { 'description' => 'This creates Thing.' },
-              '422' => { 'content' => { 'application/json' => {} }, 'description' => 'Unprocessible Entity' }
-            },
-            'tags' => ['thing']
-          }
-        },
+             'get' => {
+               'description' => 'This gets Things.',
+               'operationId' => 'getThing',
+               'parameters' => [
+                 { 'description' => 'Identity of Something',
+                   'in' => 'query',
+                   'name' => 'id',
+                   'required' => false,
+                   'schema' => { 'format' => 'int32', 'type' => 'integer' } },
+                 { 'description' => 'Content of something.',
+                   'in' => 'query',
+                   'name' => 'text',
+                   'required' => false,
+                   'schema' => { 'type' => 'string' } },
+                 { 'in' => 'query',
+                   'name' => 'others',
+                   'required' => false,
+                   'schema' => { 'type' => 'string' } }
+               ],
+               'responses' => {
+                 '200' => {
+                   'content' => { 'application/json' => {} },
+                   'description' => 'This gets Things.'
+                 },
+                 '401' => {
+                   'content' => { 'application/json' => { 'schema' => { '$ref' => '#/components/schemas/ApiError' } } },
+                   'description' => 'Unauthorized'
+                 }
+               }, 'tags' => ['thing']
+             }, 'post' => {
+               'description' => 'This creates Thing.',
+               'operationId' => 'postThing',
+               'requestBody' => {
+                 'content' => {
+                   'application/json' => {
+                     'schema' => { 'properties' => {}, 'type' => 'object' }
+                   },
+                   'application/x-www-form-urlencoded' => {
+                     'schema' => {
+                       'properties' => {
+                         'links' => { 'items' => { 'type' => 'string' }, 'type' => 'array' },
+                         'text' => { 'description' => 'Content of something.', 'type' => 'string' }
+                       },
+                       'required' => %w[text links],
+                       'type' => 'object'
+                     }
+                   }
+                 }
+               },
+               'responses' => {
+                 '201' => { 'description' => 'This creates Thing.' },
+                 '422' => { 'content' => { 'application/json' => {} }, 'description' => 'Unprocessible Entity' }
+               },
+               'tags' => ['thing']
+             }
+           },
         '/thing/{id}' => {
           'delete' => {
             'description' => 'This deletes Thing.',
