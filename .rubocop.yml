@@ -4,32 +4,74 @@ AllCops:
   Exclude:
     - vendor/**/*
     - example/**/*
-  TargetRubyVersion: 2.6
+  UseCache: true
+  NewCops: enable
+  TargetRubyVersion: 3.3
+  SuggestExtensions: false
 
+#  Layout stuff
+#
 Layout/EmptyLinesAroundArguments:
   Enabled: false
 
-Layout/IndentFirstHashElement:
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - spec/**/*
+
+# Lint stuff
+#
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - spec/**/*
+
+# Metrics stuff
+#
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
 
 Metrics/ClassLength:
-  Max: 300
+  Max: 350
 
-Metrics/LineLength:
-  Max: 120
-  Exclude:
-    - spec/**/*
+Metrics/CyclomaticComplexity:
+  Max: 17
 
 Metrics/MethodLength:
   Exclude:
     - spec/**/*
 
+# Naming stuff
+#
 Naming:
   Enabled: false
 
+# Style stuff
+#
+Style/AsciiComments:
+  Enabled: false
+
+Style/ExplicitBlockArgument:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/OpenStructUse:
+  Exclude:
+    - spec/**/*
+
+Style/RedundantArrayConstructor:
+  Enabled: false
+
 Style/RegexpLiteral:
+  Enabled: false
+
+Style/SlicingWithRange:
   Enabled: false

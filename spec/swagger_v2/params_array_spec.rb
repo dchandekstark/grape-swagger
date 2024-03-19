@@ -39,7 +39,7 @@ describe 'Group Params as Array' do
           # cause it could not be distinguished anymore, so this would be translated to one array,
           # see also next example for the difference
           params do
-            requires :array_of_string, type: Array[String], documentation: { param_type: 'body', desc: 'nested array of strings' }
+            requires :array_of_string, type: Array[String], documentation: { param_type: 'body', desc: 'nested array of strings', example: %w[a b] }
             requires :array_of_integer, type: Array[Integer], documentation: { param_type: 'body', desc: 'nested array of integers' }
           end
 
@@ -123,10 +123,10 @@ describe 'Group Params as Array' do
             'type' => 'object',
             'properties' => {
               'array_of_string' => {
-                'type' => 'string', 'description' => 'nested array of strings'
+                'items' => { 'type' => 'string' }, 'type' => 'array', 'description' => 'nested array of strings', 'example' => %w[a b]
               },
               'array_of_integer' => {
-                'type' => 'integer', 'format' => 'int32', 'description' => 'nested array of integers'
+                'items' => { 'type' => 'integer', 'format' => 'int32' }, 'type' => 'array', 'description' => 'nested array of integers'
               }
             },
             'required' => %w[array_of_string array_of_integer]
