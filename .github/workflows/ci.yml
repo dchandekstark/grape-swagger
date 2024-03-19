@@ -12,16 +12,16 @@ permissions:
   contents: read
 
 jobs:
-  # rubocop:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ruby/setup-ruby@v1
-  #       with:
-  #         ruby-version: '3.3'
-  #         bundler-cache: true
-  #     - name: Run rubocop
-  #       run: bundle exec rubocop --parallel --format progress
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Run rubocop
+        run: bundle exec rubocop --parallel --format progress
 
   grape-17:
     runs-on: ubuntu-latest
